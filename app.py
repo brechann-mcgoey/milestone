@@ -10,7 +10,7 @@ from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
 
-quandl.ApiConfig.api_key=os.environ["qandl_key"]
+quandl.ApiConfig.api_key="fqNSnBPKiMiQ4nSeVsR9"
 
 def create_figure(ticker_name):
     enddate=datetime.today().strftime("%Y-%m-%d")
