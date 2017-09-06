@@ -37,14 +37,17 @@ def create_figure(ticker_name):
 
 @app.route('/')
 def index():
+    ticker_name = request.args.get("ticker_name")
+    if ticker_name==None:
+        ticker_name="GOOGL"
     js_resources = INLINE.render_js()
     css_resources = INLINE.render_css()
-    plot=create_figure("GOOGL")
+    plot=create_figure(ticker_name)
     # Embed plot into HTML via Flask Render
     script, div = components(plot)
     return render_template('index.html',
     script=script, div=div,
-    js_resources=js_resources, css_resources=css_resources)
+    js_resources=js_resources, css_resources=css_resources,ticker_name=ticker_name)
 
 
 
