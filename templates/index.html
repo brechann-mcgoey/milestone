@@ -10,6 +10,15 @@
 		<title>Wilkommen, bienvenue, and welcome to Heroku!</title>
 
     <!-- Bootstrap core CSS -->
+		<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.4.min.css"
+    rel="stylesheet" type="text/css">
+		<link
+    href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.4.min.css"
+    rel="stylesheet" type="text/css">
+
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.4.min.js"></script>
+<script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.4.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
 	<body>
@@ -25,6 +34,8 @@
           </ul>
         </div>
       </div>
+				{{ script|safe }}
+				{{ div|safe }}
 		</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
