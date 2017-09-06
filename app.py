@@ -4,6 +4,7 @@ from datetime import datetime
 from dateutil.relativedelta import relativedelta
 from bokeh.plotting import figure
 from bokeh.embed import components
+from bokeh.resources import INLINE
 
 
 from flask import Flask, render_template, request, redirect
@@ -36,10 +37,14 @@ def create_figure(ticker_name):
 
 @app.route('/')
 def index():
+    js_resources = INLINE.render_js()
+    css_resources = INLINE.render_css()
     plot=create_figure("GOOGL")
     # Embed plot into HTML via Flask Render
     script, div = components(plot)
-    return render_template('index.html', script=script, div=div)
+    return render_template('index.html',
+    script=script, div=div,
+    js_resources=js_resources, css_resources=css_resources)
 
 
 
